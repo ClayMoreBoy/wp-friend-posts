@@ -9,10 +9,14 @@ Author URI: http://fatesinger.com/
 */
 
 
+//load css start
+
 function wfp_scripts(){
     wp_enqueue_style( 'wfp', plugins_url('', __FILE__) .'/static/style.css ', array(), '1.0.0' );
 }
 add_action('wp_enqueue_scripts', 'wfp_scripts', 20, 1);
+
+//load css end
 
 include_once( ABSPATH . WPINC . '/feed.php' );
 function get_feed_posts( $url ){
