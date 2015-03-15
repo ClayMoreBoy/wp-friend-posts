@@ -44,7 +44,7 @@ function get_the_link_items_with_posts($id = null){
         $output .= '<div class="friend-posts--wrap fontSmooth">';
         foreach ($bookmarks as $bookmark) {
             $output .=  '<div class="friend-posts"><h4 class="friend-posts-title"><a style="display:block" href="' . $bookmark->link_url . '" title="' . $bookmark->link_description . '" target="_blank" >'. get_avatar($bookmark->link_notes,24) . $bookmark->link_name .'</a></h4>';
-            $url = $bookmark->link_rss ? $bookmark->link_rss : $bookmark->link_url . '/feed/';
+            $url = $bookmark->link_rss ? $bookmark->link_rss : rtrim($bookmark->link_url,'/') . '/feed/';
             $rss_items = get_feed_posts( $url );
             if( !empty($rss_items) ) {
                 $output .= '<ul class="friend-posts-items">';
